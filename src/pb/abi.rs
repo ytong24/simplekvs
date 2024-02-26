@@ -1,3 +1,4 @@
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CommandRequest {
@@ -6,6 +7,7 @@ pub struct CommandRequest {
 }
 /// Nested message and enum types in `CommandRequest`.
 pub mod command_request {
+    #[derive(PartialOrd)]
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum RequestData {
@@ -29,6 +31,7 @@ pub mod command_request {
         Hmexist(super::Hmexist),
     }
 }
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CommandResponse {
@@ -46,6 +49,7 @@ pub struct CommandResponse {
     pub pairs: ::prost::alloc::vec::Vec<Kvpair>,
 }
 /// get the value from a table by key
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hget {
@@ -55,6 +59,7 @@ pub struct Hget {
     pub key: ::prost::alloc::string::String,
 }
 /// get all kv pairs in the table
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hgetall {
@@ -62,6 +67,7 @@ pub struct Hgetall {
     pub table: ::prost::alloc::string::String,
 }
 /// get a set of values from a table by a set of keys
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hmget {
@@ -71,6 +77,7 @@ pub struct Hmget {
     pub keys: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// type of value
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Value {
@@ -79,13 +86,14 @@ pub struct Value {
 }
 /// Nested message and enum types in `Value`.
 pub mod value {
+    #[derive(PartialOrd)]
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Value {
         #[prost(string, tag = "1")]
         String(::prost::alloc::string::String),
         #[prost(bytes, tag = "2")]
-        Binary(::prost::alloc::vec::Vec<u8>),
+        Binary(::prost::bytes::Bytes),
         #[prost(int64, tag = "3")]
         Integer(i64),
         #[prost(double, tag = "4")]
@@ -95,6 +103,7 @@ pub mod value {
     }
 }
 /// kv pair
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Kvpair {
@@ -105,6 +114,7 @@ pub struct Kvpair {
 }
 /// insert a kv pair into the table,
 /// create the table if it doesn't exist
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hset {
@@ -115,6 +125,7 @@ pub struct Hset {
 }
 /// insert a set of kv pairs into the table,
 /// create the table if it doesn't exist
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hmset {
@@ -124,6 +135,7 @@ pub struct Hmset {
     pub pairs: ::prost::alloc::vec::Vec<Kvpair>,
 }
 /// delete the key from the table, return the value
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hdel {
@@ -133,6 +145,7 @@ pub struct Hdel {
     pub key: ::prost::alloc::string::String,
 }
 /// delete a set of keys from the table, return the values
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hmdel {
@@ -142,6 +155,7 @@ pub struct Hmdel {
     pub keys: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// check if key exist
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hexist {
@@ -151,6 +165,7 @@ pub struct Hexist {
     pub key: ::prost::alloc::string::String,
 }
 /// check is a set of keys exist
+#[derive(PartialOrd)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hmexist {
