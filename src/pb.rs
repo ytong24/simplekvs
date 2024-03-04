@@ -4,11 +4,11 @@ pub mod abi;
 
 impl CommandRequest {
     /// create HSET
-    pub fn new_hset(table: impl Into<String>, key: impl Into<String>, value: Value) -> Self {
+    pub fn new_hset(table: impl Into<String>, key: impl Into<String>, value: impl Into<Value>) -> Self {
         Self {
             request_data: Some(RequestData::Hset(Hset {
                 table: table.into(),
-                pair: Some(Kvpair::new(key, value)),
+                pair: Some(Kvpair::new(key, value.into())),
             })),
         }
     }
